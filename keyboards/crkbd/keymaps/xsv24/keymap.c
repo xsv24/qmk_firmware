@@ -133,7 +133,13 @@ uint16_t LOWER_TAP_KEY = KC_TAB;
 // Mutal Macros
 
 #define CTL_Q RCTL(KC_Q)
-
+#define PLAY KC_MEDIA_PLAY_PAUSE
+#define KC_AUDIO_MUTE
+#define VOL_UP KC_AUDIO_VOL_UP
+#define VOL_DOWN KC_AUDIO_VOL_DOWN
+#define PREV KC_MEDIA_PREV_TRACK
+#define NEXT KC_MEDIA_NEXT_TRACK
+#define TAB_WIN RGUI(KC_TAB)
 // Mac Marcos
 
 #define MAC_LOWER TD(TD_MAC_LOWER)
@@ -183,95 +189,85 @@ uint16_t LOWER_TAP_KEY = KC_TAB;
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    // Windows layout
-    // Letter and shift layout
     [_QWERTY] = LAYOUT( \
 
-            KC_ESC,   KC_Q, KC_W,   KC_E,    KC_R,   KC_T,                  KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,\
+            KC_ESC,   KC_Q, KC_W,   KC_E,    KC_R,   KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,\
 
-            KC_LCTRL, KC_A, KC_S,   KC_D,    KC_F,   KC_G,                  KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
+            KC_LCTRL, KC_A, KC_S,   KC_D,    KC_F,   KC_G,                      KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
 
-            KC_LSFT,  KC_Z, KC_X,   KC_C,    KC_V,   KC_B,                  KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,\
+            KC_LSFT,  KC_Z, KC_X,   KC_C,    KC_V,   KC_B,                      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,\
 
             TOGG_ALT, WIN_LOWER,  KC_SPC,  KC_ENT,  WIN_RAISE,  KC_RGUI\
-            ),
-    // Numbers & navigation layer
+    ),
     [_RAISE] = LAYOUT( \
 
-            KC_ESC,  KC_1, KC_2,    KC_3,    KC_4,    KC_5,			        KC_6,    KC_7,      KC_8,    KC_9,      KC_0,    KC_BSPC,\
+            KC_ESC,  KC_1, KC_2,    KC_3,    KC_4,    KC_5,			            KC_6,    KC_7,      KC_8,    KC_9,      KC_0,    KC_BSPC,\
 
-            KC_LCTRL, ALL, KC_MS_L, KC_MS_U, KC_MS_R, KC_BTN1,              KC_LEFT, KC_DOWN,   KC_UP,   KC_RIGHT,   KC_WH_U, KC_PSCR,\
+            KC_LCTRL, ALL, KC_MS_L, KC_MS_U, KC_MS_R, KC_BTN1,                  KC_LEFT, KC_DOWN,   KC_UP,   KC_RIGHT,   KC_WH_U, KC_PSCR,\
 
-            KC_LSFT,  UNDO, CUT,    KC_MS_D, PASTE,   KC_BTN2,              CURS_LEFT, KC_PGDN,  KC_PGUP, CURS_RIGHT, KC_WH_D, KC_RSFT,\
+            KC_LSFT,  UNDO, CUT,    KC_MS_D, PASTE,   KC_BTN2,                  CURS_LEFT, KC_PGDN,  KC_PGUP, CURS_RIGHT, KC_WH_D, KC_RSFT,\
 
             TOGG_ALT, WIN_LOWER,  KC_SPC,  KC_ENT,  WIN_RAISE, KC_RGUI\
-            ),
-    // Character and control layer
+    ),
     [_LOWER] = LAYOUT( \
 
-            KC_ESC,  KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,\
+            KC_ESC,  KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC,                 KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,\
 
-            KC_LCTRL, KC_F1,  KC_F2,  KC_F3,   KC_F5,  KC_F10,              KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_PIPE,  KC_GRV,\
+            KC_LCTRL, KC_F1,  KC_F2,  KC_F3,   KC_F5,  KC_F10,                  KC_EQL, KC_PLUS, KC_LBRC, KC_RBRC, KC_PIPE,  KC_GRV,\
 
-            KC_LSFT, UNDO,    KC_F12, COPY,    PASTE,  KC_F11,	            KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR,   KC_BSLS, KC_TILD,\
+            KC_LSFT, UNDO,    KC_F12, COPY,    PASTE,  KC_F11,	                KC_UNDS, KC_MINS, KC_LCBR, KC_RCBR,   KC_BSLS, KC_TILD,\
 
-            TOGG_ALT,   WIN_LOWER,  KC_SPC,  KC_ENT,  WIN_RAISE, KC_RGUI\
-            ),
-    // Control layer
+            TOGG_ALT, WIN_LOWER, KC_SPC,  KC_ENT,  WIN_RAISE, KC_RGUI\
+    ),
     [_ADJUST] = LAYOUT( \
 
-            MAC_QWERTY, CTL_Q,  GO_METH, EXPLORE,  REPO,  COLPSE,		  UN_COLPSE, KC_U,    GO_BRAK, OPEN_FS,    PEEK,   DEL_WORD,\
+            MAC_QWERTY, CTL_Q,  GO_METH, EXPLORE,  REPO,  COLPSE,		        UN_COLPSE, KC_U,    GO_BRAK, OPEN_FS,    PEEK,   DEL_WORD,\
 
-            KC_LCTRL,   ALL,    WIN_LEFT, MV_UP,  MV_DN,  WIN_RIGHT,      SLT_LEFT,  SLT_DOWN, SLT_UP, SLT_RIGHT,  KC_SCLN,  KC_PSCR,\
+            KC_LCTRL,   ALL,    WIN_LEFT, MV_UP,  MV_DN,  WIN_RIGHT,            SLT_LEFT,  SLT_DOWN, SLT_UP, SLT_RIGHT,  KC_SCLN,  KC_PSCR,\
 
-            KC_LSFT,    UNDO,    DEL_LN,  COPY,   PASTE,  KC_B,           SLT_L_LN,  ADD_CURS_DN, ADD_CURS_UP, SLT_R_LN,   KC_ACL2,  KC_RSFT,\
+            KC_LSFT,    UNDO,    DEL_LN,  COPY,   PASTE,  KC_B,                 SLT_L_LN,  ADD_CURS_DN, ADD_CURS_UP, SLT_R_LN,   KC_ACL2,  KC_RSFT,\
 
-            TOGG_ALT,  WIN_LOWER,   KC_SPC,  KC_ENT,    WIN_RAISE,  KC_RGUI\
-            ),
-    // MAC layout
-    // Letter and shift layout
+            TOGG_ALT,  WIN_LOWER, KC_SPC,  KC_ENT,    WIN_RAISE,  KC_RGUI\
+    ),
     [_MAC_QWERTY] = LAYOUT( \
 
-            KC_ESC,    	KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,            KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,\
+            KC_ESC,    	KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,               KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,\
 
-            KC_RGUI,	KC_A,    KC_S,    KC_D,    KC_F,    KC_G,            KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
+            KC_RGUI,	KC_A,    KC_S,    KC_D,    KC_F,    KC_G,               KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
 
-            KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,            KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,\
+            KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,\
 
-            TOGG_ALT, MAC_LOWER,     KC_SPC,  KC_ENT,      MAC_RAISE, KC_LCTRL\
-            ),
-    // Numbers & navigation layer
+            TOGG_ALT, MAC_LOWER, KC_SPC,  KC_ENT,  MAC_RAISE, KC_LCTRL\
+    ),
     [_MAC_RAISE] = LAYOUT( \
 
-            KC_ESC,     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,			   KC_6,    KC_7,        KC_8,    KC_9,         KC_0,    KC_BSPC,\
+            KC_ESC,     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,			    KC_6,    KC_7,        KC_8,    KC_9,      KC_0,    KC_BSPC,\
 
-            KC_RGUI, 	M_ALL,   KC_MS_L, KC_MS_U, KC_MS_R, KC_BTN1,           KC_LEFT, KC_DOWN,     KC_UP,   KC_RIGHT,     KC_WH_U, KC_PSCR,\
+            KC_RGUI, 	KC_6,    KC_7,    KC_8,    KC_9,    KC_0,               KC_LEFT, KC_DOWN,     KC_UP,   KC_RIGHT,  KC_WH_U, KC_PSCR,\
 
-            KC_LSFT,   M_UNDO,   M_CUT,   KC_MS_D, M_PASTE, KC_BTN2,           M_CURS_LEFT, KC_PGDN, KC_PGUP, M_CURS_RIGHT, KC_WH_D, KC_RSFT,\
+            KC_LSFT,    PLAY,   VOL_UP,  VOL_DOWN, NEXT,    PREV,               M_CURS_LEFT, KC_PGDN, KC_PGUP, M_CURS_RIGHT, KC_WH_D, KC_RSFT,\
 
-            TOGG_ALT,  MAC_LOWER,      KC_SPC,  KC_ENT,      MAC_RAISE,  KC_LCTRL\
-            ),
-    // Character and control layer
+            TOGG_ALT,  MAC_LOWER, KC_SPC,  KC_ENT, MAC_RAISE,  KC_LCTRL\
+    ),
     [_MAC_LOWER] = LAYOUT( \
 
-            KC_ESC,  KC_EXLM,    KC_AT,    KC_HASH, KC_DLR,  KC_PERC,            KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,\
+            KC_ESC,  KC_EXLM,  KC_AT,     KC_HASH,  KC_DLR,  KC_PERC,           KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,\
 
-            KC_RGUI, KC_F1,      KC_F2,    KC_F3,   KC_F5,   KC_F10,             KC_MINS,  KC_EQL,  KC_LBRC, KC_RBRC, KC_PIPE,  KC_GRV,\
+            KC_RGUI, KC_TAB,   KC_LCBR,   KC_RCBR,  KC_LPRN, KC_RPRN,           KC_EQL,  KC_PLUS,  KC_LBRC, KC_RBRC, KC_PIPE,  KC_GRV,\
 
-            KC_LSFT, M_UNDO,     KC_F12,   M_COPY,  M_PASTE, KC_F11,	         KC_UNDS,  KC_PLUS, KC_LCBR, KC_RCBR, KC_BSLS, KC_TILD,\
+            KC_LSFT, KC_UNDO,  KC_CUT,   KC_CAPS,   KC__MUTE, KC_DEL,            KC_UNDS, KC_MINS,  KC_LT,   KC_GT,   KC_BSLS, KC_TILD,\
 
-            TOGG_ALT,   MAC_LOWER,    KC_SPC,  KC_ENT,    MAC_RAISE, KC_LCTRL\
-            ),
-    // Control layer
+            TOGG_ALT, MAC_LOWER, KC_SPC,  KC_ENT, MAC_RAISE, KC_LCTRL\
+    ),
     [_MAC_ADJUST] = LAYOUT( \
 
-            QWERTY,   CTL_Q,     M_GO_METH,  M_EXPLORE, M_REPO, M_COLPSE,		   M_UN_COLPSE, KC_U,    M_GO_BRAK, M_OPEN_FS,   M_PEEK,   M_DEL_WORD,\
+            QWERTY,   CTL_Q,    M_GO_METH,  M_EXPLORE,  M_REPO, M_COLPSE,		M_UN_COLPSE, KC_U,    M_GO_BRAK, M_OPEN_FS,   M_PEEK,   KC_BSPC,\
 
-            KC_LCTRL, M_ALL,     MAC_LEFT,   M_MV_UP,  M_MV_DN,  MAC_RIGHT,	       M_SLT_LEFT, M_SLT_DN, M_SLT_UP,  M_SLT_RIGHT, KC_SCLN,  KC_PSCR,\
+            KC_LCTRL, KC_F1,    MAC_LEFT,   KC_F3,    TAB_WIN, MAC_RIGHT,	    M_SLT_LEFT, M_SLT_DN, M_SLT_UP,  M_SLT_RIGHT, KC_SCLN,  KC_PSCR,\
 
-            KC_LSFT,  M_UNDO,    M_DEL_LN,   M_COPY,   M_PASTE, KC_B,              M_SLT_L_LN, M_ADD_CURS_DN, M_ADD_CURS_UP, M_SLT_R_LN,  KC_ACL2,  KC_RSFT,\
+            KC_LSFT,  KC_F2,    KC_F5,      KC_F10,   KC_F11,   KC_F12,           M_SLT_L_LN, M_ADD_CURS_DN, M_ADD_CURS_UP, M_SLT_R_LN,  KC_ACL2,  KC_RSFT,\
 
-            TOGG_ALT,  MAC_LOWER,    KC_SPC,  KC_ENT,    MAC_RAISE, KC_LCTRL\
+            TOGG_ALT,  MAC_LOWER, KC_SPC,  KC_ENT,   MAC_RAISE, KC_LCTRL\
     )
 };
 
@@ -301,8 +297,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     // reset keyboard if layers stuck!
-    // persistent_default_layer_set(1UL<<_QWERTY);
-    // reset_keyboard();
+    //persistent_default_layer_set(1UL<<_MAC_QWERTY);
+    //reset_keyboard();
 
     switch (keycode) {
         case QWERTY:
